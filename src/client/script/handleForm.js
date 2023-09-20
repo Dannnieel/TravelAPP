@@ -1,4 +1,10 @@
 import axios from "axios";
+import { getRdays } from "./getRdays";
+
+//PW 
+//navigator.serviceWorker.register('/sw.js');
+
+
 const form = document.querySelector("form");
 const cityInp = document.querySelector("#city");
 const dateInp = document.querySelector("#flightDate");
@@ -108,19 +114,7 @@ const getWeather = async (lng, lat, remainingDays) => {
   return data;
 };
 
-const getRdays = (date) => {
-  // Set the start and end dates
-  const startDate = new Date();
-  const endDate = new Date(date);
 
-  // Calculate the time difference in milliseconds
-  const timeDiff = endDate.getTime() - startDate.getTime();
-
-  // Convert the time difference to days
-  const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-  // Output the result
-  return daysDiff;
-};
 
 //getting the city picture from pixabay
 const getCityPic = async (city_name) => {
