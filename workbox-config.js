@@ -1,9 +1,9 @@
 module.exports = {
-	globDirectory: 'src/',
+	globDirectory: 'dist/',
 	globPatterns: [
 		'**/*.{js,jpg,scss,html}'
 	],
-	swDest: 'src/sw.js',
+	swDest: 'dist/sw.js',
 	ignoreURLParametersMatching: [
 		/^utm_/,
 		/^fbclid$/,

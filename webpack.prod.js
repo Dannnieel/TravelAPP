@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"),
     common = require("./webpack.common.js");
     const { merge } = require("webpack-merge"),
     CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-    
+const WorkboxPlugin = require('workbox-webpack-plugin');
+ 
 
 module.exports = merge(common, {
     mode: "production",
@@ -37,6 +38,7 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css'
         }),
+        new WorkboxPlugin.GenerateSW()
 
         
 

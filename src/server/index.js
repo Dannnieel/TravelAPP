@@ -25,9 +25,9 @@ const pixabay_key = process.env.pixabay_key
 
 
 
-app.get("/", (req, res) => {
-  res.render("index.html")
-})
+app.get('/',function (req,res) {
+  res.status(200).sendFile('dist/index.html');
+});
 
 app.post("/getCity", async (req,res) => {
     const city = req.body.city;
@@ -48,4 +48,4 @@ app.post("/getCityPic", async (req,res) => {
   return res.send(getPic)
 })
 
-app.listen(8000, () => console.log(`server is listening on port ${port}`))
+module.exports = app;
