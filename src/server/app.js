@@ -9,6 +9,10 @@ app.use(express.static('dist'))
 //require dotenv
 require("dotenv").config()
 
+app.get('/',function (req,res) {
+  res.status(200).sendFile('dist/index.html');
+});
+
 //get the city function which get location from geoNames
 const  {getCityLoc} = require("./getCityLoc")
 const {weatherTemp} = require("./weatherTemp")
@@ -16,7 +20,7 @@ const {getCityPic} = require("./getCityPic")
 
 app.use(cors())
 
-port = 8000
+
 
 
 const username = process.env.USER
@@ -48,4 +52,4 @@ app.post("/getCityPic", async (req,res) => {
   return res.send(getPic)
 })
 
-app.listen(8000, () => console.log(`server is listening on port ${port}`))
+module.exports = app;
